@@ -1,5 +1,4 @@
 import { createConnection, getConnectionOptions } from "typeorm"
-import { Category } from "../modules/cars/entities/Category";
 
 interface IOptions {
   host: string;
@@ -7,11 +6,8 @@ interface IOptions {
 
 getConnectionOptions().then(options => {
   const newOptions = options as IOptions;
-  newOptions.host = 'database';
+  newOptions.host = 'database_ignite';
   createConnection({
     ...options,
-    entities: [
-      Category
-    ]
   })
 })
